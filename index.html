@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حصالة التوفير الذكية 💰</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- استدعاء مكتبة الرسم البياني Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <!-- زر الوضع الليلي -->
+        <div class="header-bar">
+            <h1>حصالة التوفير 💰</h1>
+            <button id="themeToggleBtn" class="theme-btn" onclick="toggleDarkMode()">🌙</button>
+        </div>
+
+        <!-- قسم هدف الادخار -->
+        <div class="goal-section">
+            <h3>🎯 هدف الادخار</h3>
+            <div id="goalSetupView">
+                <input type="text" id="goalNameInput" placeholder="ما الذي تريد ادخاره؟ (مثلاً: هاتف)">
+                <input type="number" id="goalAmountInput" placeholder="سعر الهدف (د.ت)" step="any">
+                <button onclick="setGoal()">تحديد الهدف</button>
+            </div>
+            
+            <div id="goalProgressView" style="display: none;">
+                <p id="goalTitleText" style="font-weight: bold; margin-bottom: 5px;"></p>
+                <div class="progress-bar-container">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+                <div class="progress-info">
+                    <span id="goalPercentage">0%</span>
+                    <button class="edit-goal-btn" onclick="resetGoal()">تغيير الهدف</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- بطاقة المبلغ الإجمالي -->
+        <div class="total-card">
+            <p>المبلغ الإجمالي في الحصالة</p>
+            <h2 id="totalAmount">0 د.ت</h2>
+        </div>
+
+        <!-- خانة الإدخال وزر الإضافة -->
+        <div class="input-section">
+            <input type="number" id="amountInput" placeholder="أدخل المبلغ المراد ادخاره" step="any">
+            <button onclick="addSavings()">إضافة إلى الحصالة</button>
+        </div>
+
+        <!-- قسم المخطط البياني -->
+        <div class="chart-section">
+            <h3>مخطط الادخار الشهري:</h3>
+            <div class="canvas-container">
+                <canvas id="savingsChart"></canvas>
+            </div>
+        </div>
+
+        <!-- سجل المعاملات وزر الحذف -->
+        <div class="history-section">
+            <h3>سجل العمليات:</h3>
+            <div id="historyContainer" class="history-container">
+                <!-- يتم تعبئتها تلقائياً -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
